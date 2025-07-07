@@ -1,0 +1,71 @@
+2025.7.7 晴
+今天天气热的发懵。
+
+git已经学完80%的基础操作，基本上可以自己解决大部分基础问题。
+git switch换分支的同时也会把本地仓库的文件也更新掉，所以git根本没有我想象中那种混乱的记录性缓存，真好！
+git的本操作以及学习完毕了，GitHub链接也很正常，接下来就用git技术在你的Java库里面进行学习记录，并开发一些过时的小玩意。
+期许着能有志和道同的朋友一起学习。
+
+Java:
+今天通过看书复习了之前的一些内容，补充了一些没有接触到的内容：
+# 字符：'' 字符串："" # 引号不同
+
+# 转义字符：\t制表符、\r回车、\n回车
+
+# 强制类型转换：长->短 精度缺失
+
+# 字符串->数值类型  XXX.parseXXX(xxx)  
+例：String a = "123"; float b = Float.parseFloat(a);
+
+# 局部变量推断：var
+var只能在方法内声明局部变量，且只能说明一个变量，初始值不为null
+var声明数组 var x = new int [x];
+
+# 除了Scanner以外还有一个输入方式，readLine()
+a、引用java.io.*的包
+b、定义一个BufferedReader的类？
+c、定义一个对象并调用（new InputStreamReader(System.in)）方法
+d、调用对象的类包的的readLine()方法，并解决异常throws IOException，
+这时不管输入的是文字还是数字，输出的都是string类型
+e、如果要通过键盘输入数值类型，必须通过parse()方法转成所需类型
+
+# 数组：
+int [] x = new int [i];
+var x = new int [x];
+用new赋值对象
+数组中数值类型一致
+内存模型
+栈内存		堆内存
+int[]x		x[0]、x[1]、	
+?、?……	……（具体数值）
+对数组的简单方法：
+public static void sort(X[]a)	升序存放
+public static void sort(X[]a,int a,int b)	定位升序a~b
+public static void sort(X[]a, int b)	截取a数组中长度为b的数组复制给调用数组
+不能定义数组的长度（int[5]a）不然会报错，var不能初始化数组
+明天简单推一下约瑟夫杯、杨辉三角等。
+foreach循环，用于快速遍历数组、检索数组：
+例如：
+int [] a = {1、2、3、4、5};
+for(int e : a)
+System.out.println(e);
+每次从a中取一个元素，自动赋值给e(a.lengh<e的范围，e与数组类型一致)
+多维数组
+int [] [] = new int [n][m];行，列
+int [] [] = {{……},
+	     {……}    
+	     {……}};
+三维数组的图形是什么样的？
+
+# 字符串
+String a = new String(" ");
+用new赋值对象，储存方式又是基本数据类型
+字符串与其他类型变量相加自动将其他数据类型转化成字符串
+字符串一旦被赋值或初始化，值不变
+一旦变了，新的对象的申请的是新的储存空间，名字一样但储存空间不同
+比价字符串的方法：equals(),str.equals(str2);
+其他字符串常见方法:
+1、大写 --> 小写 ：toLowerCase()
+2、小写 --> 大写: toUpperCase()
+P63
+
