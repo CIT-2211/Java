@@ -1,0 +1,136 @@
+﻿学习Git大纲---满满干货
+学习前请先下载git
+环境变量实例：D:\GitHub\Git\bin\Git\cmd
+
+2025-7-3
+一、Git 的基本操作说明-----建立本地仓库
+
+##基础操作:cmd都能跑，感觉比较通用。
+mkdir xxxx   
+del xxxx(删除空目录) 
+del -r xxxx(强制删除目录)
+cat xxx 查看文件
+pwd     显示目录
+ls      显示子文件
+ls -ah   隐藏文件
+
+##cmd:
+setx GIT_CONFIG_GLOBAL "H:\GitHub\Git\other_tools\xxxx"   cmd自动保存位置更改
+dir查看子文件
+mkdir xx
+rmdir xx
+:: 以管理员身份运行 CMD
+:: 获取文件所有权
+takeown /f "H:\GitHub\Git\other_tools\git-config"
+:: 授予当前用户完全控制权限
+icacls "H:\GitHub\Git\other_tools\git-config" /grant "%username%:F"
+:: 尝试访问
+type "H:\GitHub\Git\other_tools\git-config"
+
+
+##仓库信息
+git config --global user.name "your name"
+git config --global email.name "your email"
+git init 建立仓库
+
+##git仓库说明:
+ =>仓库内容 + .git
+  |=>.git ==>stage(缓存区) + master(HEAD版本库)
+
+##添加、删除和提交
+git add xxxx 
+提交到缓存区, 就是提交在.git/stage下面
+git rm xxx
+删除缓存区文件，.git/stage
+git commit -m "xxxxxxxx(说明)"
+commit可以一次提交很多文件，主要起到说明作用
+就是提交在.git/(HEAD)master下面
+
+##查看和回溯
+git status 查看仓库状态，是否存在文件没用提交
+git diff 常看上次修改文件的具体修改内容
+
+git log查看日志
+ git log --pretty=oneline：优化显示（）
+
+git reset --hard HEAD^ 版本回溯(每往上一个版本就要加一个^)
+--hard 已提交状态 --soft未提交状态  --mixed 添加但未提交状态
+git reset --hard xxxx(需要回溯的版本号前几位)可以再次穿梭到未来
+
+git reset --hard commit_id 穿越or回溯
+git reflog ：记录着使用者git使用的每一次命令
+
+##撤销修改
+未提交：git checkout -- xxx
+已添加，未提交：回溯（git reset HEAD xxx） or git checkout -- xxx
+
+2025-7-4
+二、建立远程仓库
+##查看是否存在密钥
+ls ~/.ssh/
+cd ~/.ssh
+ls
+##生成新的SSH Key用于仓库钥匙
+ssh-keygen -t ed25519(算法) -C "your_email@example.com（常用邮箱）"
+生成密钥算法：-t ed25519、-b 4096
+##输入后的交互流程：
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/home/user/.ssh/id_ed25519):  # 直接回车（默认路径）
+Enter passphrase (empty for no passphrase):  # 设置密码（MyPassword ：030911）
+Enter same passphrase again:  # 确认密码（MyPassword ：030911）
+生成两个文件id_rsa、id_rsa.pub，id_rsa是私钥，，id_rsa.pub是公钥。
+
+##GitHub与本地仓库做链接
+git remote add origin(仓库默认名字) git@github.come:Github_Name/Warehose_name.git
+git push -u origin master (第一次推送，会得到ssh警告)
+git push origin master (成功推送后，之后的推送)
+git remote -v 查看已经建立联系的库，以及相对应的权限
+git remote rm origin 删除origin的远程仓库
+git clone git@github.com:xxxxx_name/xxxxx_wname.git 克隆远程仓库到本地来
+git pull xxx 拉取远程xxx分支并更新（合并）属于符合命令
+相当于:	git fetch xxx 下载远程xxx分支
+	git merge xxx 合并分支
+
+2025-7-5
+##Git的分支管理:
+主分支+master副分支，其他创建的都是副分支
+git branch xxx	    创建xxx分支
+git checkout -b xxx 创建xxx分支,并切换到xxx分支上面
+git branch          查看当前分支
+git merge  xxx	    将指定分支xxx与当前分支合并（相当于向主分支做一次提交Fast-forward）
+git branch -d xxx   删除xxx分支,查看分支是否与HEAD或上游分支合并过，若没有，则报错取消执行
+git branch -D xxx   强制删除xxx分支，不管有没有合并直接删除
+更科学的切换分支：switch
+git switch -c xxx   创建xxx分支,并切换到xxx分支上面
+git switch xxx      切换到xxx分支
+关于合并方式：有没有 --no-ff
+如：git merge --no-ff -m "<commit描述>" xxx
+禁用Fast-forward,强制产生合并提交，适用于大工程。 
+
+定期清理远程分支：
+git ls -remote --heads xxxx(库名) 列出所有的远程文件
+git push xxx --delete old-feature 删除所有废弃分支
+
+当分支之间产生冲突时，我们要先解决冲突再合并分支。
+我们可以用git log --graph来查看整个分支合并图
+同样的，我们可以用--graph --pretty=oneline --abbrev-commit来使代码更加简洁显示。
+
+2025-7-6
+##团队合作中常见的分支管理：
+常见问题:	分支创建于合并 > 冲突分支 >> 分支管理 >>> BUG分支 >>>> 临时分支管理
+		多人协作 >>>>> Rebase修改分支记录 
+!!!!一定要等工作树干净后再切换分支
+检查本地仓库状态 git status
+
+BUG分支
+方法一：在原BUG分支上建立临时分支进行修改
+git stash   缓存当前工作状态到工作区（如果不提交就切换分支会导致脏记录，甚至冲突分支！）
+git stash lish 来查看已缓存的工作区状态
+恢复方法：
+git stash apply(缓存区的状态不删除)  git stash drop 手动删除缓存区	  
+git stash pop  (缓存区的状态删除)
+方法二：把BUG转到自己上面来(前提，当前分支是从BUG所在分支分裂而来)
+guiut cherry-pick <BUG.commit.id> 将问题代码转到当前分支
+如后修复BUG提交就行啦！
+
+

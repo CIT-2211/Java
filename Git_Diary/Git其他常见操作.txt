@@ -1,0 +1,41 @@
+一、从零开始的建库上传流程：
+1、建立密钥：
+##生成新的SSH Key用于仓库钥匙
+ssh-keygen -t ed25519(算法) -C "your_email@example.com（常用邮箱）"
+生成密钥算法：-t ed25519、-b 4096
+##输入后的交互流程：
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/home/user/.ssh/id_ed25519):  # 直接回车（默认路径）
+Enter passphrase (empty for no passphrase):  # 设置密码(建议直接回车，避免忘记密码就糟糕了1)
+Enter same passphrase again:  # 确认密码
+生成两个文件一般会在C:\Users\86150\.ssh（也可以自定义位置，网上搜）下面生成id_rsa、id_rsa.pub两个文件
+id_rsa是私钥，，id_rsa.pub是公钥。
+2、建立本地仓库：
+##配置本地仓库信息
+git config --global user.name "your name"    # 本地用户账号名
+git config --global email.name "your email"  # 本地用户常用邮件（信息展示不是做绑定的用的）
+git init  #建立本地仓库
+##GitHub与本地仓库做链接
+git remote add <Local_repo.Name>(本地仓库默认名字) git@github.come:<Github.name>/<repo.name>.git #关联远程仓库
+##将本地仓库文件提交到远程仓库
+git add xxx(将xxx文件提交至缓存)
+git commit -m "xxxxxxx(上传说明)"
+git push -u Local_repo master(分支名) #向远程仓库推送(第一次推送，会得到ssh警告)
+git push Local_repo master #(成功推送后，之后的推送)
+3、切换不同分支提交文件
+假设已经做完一次提交：git add -- git commit -- git push
+一定要清除本地文件(或者缓存工作状态)
+git rm -r xxx # 清除已经上交的文件
+git add.      # 提交仓库为空的状态
+git commit -m "清除缓存"   # 提交说明
+git status  # 查看本地仓库文件状态
+nothing to commit, working tree clean  # 只要出现这样的字样内存就清理完毕
+git switch xxx # 切换分支
+…………（重复操作）
+再次警告一定要显示工作树干净再切换分支工作！！！
+切换分支前一定要git status查看状态！！！
+我已经吃过不止一次这样的亏了！！！
+4、从远程仓库xxx分支里面抓取文件
+git switch xxx # 切换分支
+git switch xxx2 # 再次切换分支，xxx内容会自动下载到本地仓库
+# 切换xxx分支库并将分支里面所有文件下载到本地
