@@ -1,6 +1,8 @@
-# Java
-Study daily!
-所有深夜里独自燃烧的灯火，终将汇聚成黎明破晓时的万丈光芒！
-种一棵树最好的时间是十年前，其次是现在。
-外界的眼光是他们的牢笼，不是你的枷锁，雄鹰从不在意麻雀如何看待它的飞行高度！ 
-朋友，如果你看到这些有所感悟，请留下你感悟和一段话吧！ 把时光交给岁月，承着你的感悟和“ta”，一起见证这十年的变化！
+# Bald programmer
+Greetings, esteemed stranger! It is a genuine pleasure to make your acquaintance. 
+In the tapestry of professional interactions, such moments of connection often carry the potential for meaningful exchanges, and I am delighted to engage with you. 
+May our dialogue be as enriching as it is courteous.
+All the solitary flames burning in the dead of night shall ultimately converge into a boundless radiance at dawn's first light.  
+The finest moment to plant a tree was a decade ago; the next best is now.  
+The world's gaze forms their prison, not your chains. A noble eagle never concerns itself with how sparrows judge the height of its flight.  
+Should these words resonate with you, dear friend, I invite you to share your reflections. Let time unfold through the years, carrying your insights and "them" alike, as we witness the transformations of the coming decade.
