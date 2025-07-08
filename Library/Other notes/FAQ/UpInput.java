@@ -1,7 +1,9 @@
+package org.example;
+
 import java.util.*;
 import java.io.*;
 import java.lang.*;
-public class d{
+public class UpInput{
 	public static void main (String[] args) throws IOException{
 		System.out.println("从键盘输入数据的两种方法");
 		System.out.println("一、readLine()异常处理法");
