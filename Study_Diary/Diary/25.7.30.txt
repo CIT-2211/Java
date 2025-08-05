@@ -1,0 +1,14 @@
+2025/7/30	晴转多云
+## 计算机元年时间：1970.01.01 00:00:00
+
+## 时间戳和瞬间时间机制
+
+## 利用时间戳访问log---利用log恢复已经删除的文件和操作
+
+## 使用Date类(util中可精确到ms)、DateFormat(SimpleDateFormat,在text中)类、Calendar类(在util中)的操作和方法
+
+## 理解DateFormat 和 SimpleDateFormat的区别和的定义范围
+
+## 使用Math类和random类(在util中)
+
+## time的平替法

@@ -1,0 +1,10 @@
+2025/7/18	晴
+
+## interface、声明格式是什么样的？如何调用interface(implements)?简要说明
+
+##什么是interface？interface的作用是什么？
+
+##interface的注意点
+
+##interface中的static methods 和 default methods(>=JDK8)
+

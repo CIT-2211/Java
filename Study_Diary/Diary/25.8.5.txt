@@ -1,0 +1,29 @@
+2025/8/5	晴
+## 泛型类、泛型方法、泛型接口
+
+## 封装与泛型
+getter
+setter
+
+## 标识符
+类名、接口名、方法返回值之前，修饰符名之后
+
+## 推断：泛型方法中存在多个形式参数，推断所属类为类型参数的最近同父类，主要取决于JVM的的推断能力
+
+## static方法（类）调用不了泛型方法里面的类型参数（实例）， static需要使用泛型能力，必须成为泛型方法
+
+## 限制泛型的可用类型 <T extends anyClass(类或方法)>
+T必须是anyClass类 or 继承了anyClass类的子类 or 实现了anyClass接口的子类
+所创建的对象时，类型实际参数必须是anyClass类或者是子类或实现anyClass接口的子类
+实现接口有限泛型，也是用extends
+
+## 泛型接口的两种情况： A、具体类 B、普通类
+A、public class className implements A <基本数据类型包装类> { 成员 }
+B、public class className implements B <T> { 成员<T> }
+
+## 泛型方法和可变参数类型
+public <T> void methodName (T ... agrs)  { 成员 }
+多个形式参数可变参数要最后一个、一个方法最多一个可变参数、
+调用时可传递任意参数，可以直接传入数组之中
+
+总结：嗯~欲速则不达也！一步一个脚印的走吧！

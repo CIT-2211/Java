@@ -1,0 +1,10 @@
+2025/7/16	多云转大雨
+挂几针好受多了。
+##final的作用，final和static的区别，何时调用final、static
+
+##Object类中常见的几种方法及其作用
+equals()、toString()、getClass()、instanceof()
+
+##判断继承层次结构中的工作方式
+
+##简易的框架结构-----抽象类和抽象方法abstract，什么是抽象类？什么是抽象方法？为什么要使用抽象类和   抽象方法？它们的意义是什么？

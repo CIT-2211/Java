@@ -1,0 +1,19 @@
+2025/7/22	晴
+周二的图书馆的人特别的多呢！全都是一些来学习的孩子！现在的孩子真是努力呢！
+
+## 巩固get()seter()封装、interface(implements)接口、new组合(extends继承)
+封装状态 => 接口定义 => 组合复用功能 => 继承仅用于类型关系
+
+## 简单的自定义异常处理(IllegalAgumentException)：
+形式：if(xxx) {throw new IllegalAgumentException (xxxxx)}
+
+## 与try-catch连用的异常处理
+形式： try {xxxxxx(可能抛出的异常)} catch (IllegalAgumentException e){
+		xxxxxx e.getMessage(异常处理)}
+作用：程序不会因为错误而代码崩溃，继续执行后面的代码
+
+## 数组的定义和特点、声明方式、初始化方式
+
+## 数组的简单操作：遍历（for循环、for-each循环）和拷贝(System.arratcopy()方法)
+
+## 数组常用的工具包类：java.util.Arrays

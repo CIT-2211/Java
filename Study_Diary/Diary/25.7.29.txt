@@ -1,0 +1,24 @@
+2025/7/29	多云转晴
+
+## 装箱和拆箱
+装箱：基本数据类型 => 包装类对象
+拆箱：包装类对象 => 基本数据类型
+实质是：调用静态方法valueOf()、调用实例方法intValue()
+目的：为一些特殊的方法、接口(ArrayList、Collection等)做准备
+
+## 常用类---基本数据类型(Integer)---自定义类的写法（以Integer为例）
+
+不可变字符序列，受final管制，毎使用相关方法相当于创建新对象浪费内存
+单线程，规模小，常量一般使用String
+## 常用类---String、StringBuffer和StringBuilder的用法区别
+String:		不可变字符序列，受final管制，毎使用相关方法相当于创建新对象浪费内存
+StringBuffer:	可变字符序列，低效，有检查，线程更安全，不会创建对象，不浪费内存。
+StringBuilder	可变字符序列，高效，无检查，线程不安全，同上。
+使用：	单线程，规模小，常量一般使用String
+	多线程，方法里StringBuilder,方法外StringBuffer
+
+## 获取当前系统测试前的内存和测试和的内存，计算测试所占内存、获取系统操作的当前时间
+Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()
+测试前的内存-测试后的内存 = 测试对象所占内存
+System.currentTimeMillis();
+当前时间
